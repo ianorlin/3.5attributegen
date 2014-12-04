@@ -30,6 +30,6 @@ for attribute in range(1,7):
     temp_rolls=sorted(temp_rolls)
     final_attributes+= [sum(temp_rolls[1:4])]
     if (attribute == 6):
-        print (final_attributes)
+        print (sorted(final_attributes, reverse=True))
 
 
