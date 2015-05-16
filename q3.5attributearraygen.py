@@ -16,8 +16,9 @@
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #!/usr/bin/env python3
-
+from PyQt5.QtWidgets import *
 import random
+import sys
 final_attributes=[]
 random.seed()
 
@@ -29,7 +30,25 @@ for attribute in range(1,7):
        temp_rolls+= [random.randint(1,6)]
     temp_rolls=sorted(temp_rolls)
     final_attributes+= [sum(temp_rolls[1:4])]
-    if (attribute == 6):
-        print (sorted(final_attributes, reverse=True))
+    #if (attribute == 6):
+       # print (sorted(final_attributes, reverse=True))
+
+# Make Qt5 GUI frontend
+class Window(QWidget):
+    def __init__(self):
+       super(Window, self).__init__()
+       layout=QGridLayout()
+
+       label=QLabel("your character stats")
+       layout.addWidget(label,0,1)
+
+      #need to get to  a string to print. 
+      # label= QLabel(sorted(final_attributes, reverse=True))
+      # layout.addWidget(label,0,2)
+app= QApplication(sys.argv)   
+
+screen=Window()
+screen.show()
 
 
+sys.exit(app.exec_())
