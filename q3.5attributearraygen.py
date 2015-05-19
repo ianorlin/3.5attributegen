@@ -20,31 +20,43 @@ from PyQt5.QtWidgets import *
 import random
 import sys
 final_attributes=[]
+intermediate_attributes=[]
 random.seed()
 
  
+
 for attribute in range(1,7): 
     temp_rolls=[]
     for dice in range (1,5):
        #roll 4d6 and drop the lowest.
        temp_rolls+= [random.randint(1,6)]
     temp_rolls=sorted(temp_rolls)
-    final_attributes+= [sum(temp_rolls[1:4])]
+    intermediate_attributes+= [sum(temp_rolls[1:4])]
     #if (attribute == 6):
        # print (sorted(final_attributes, reverse=True))
 
+# sort the stats not in order but with reverse of normal from high to low
+intermdediate_attributes= sorted (intermediate_attributes, reverse=True)
+for stat in range(0,6):
+    final_attributes+= str(intermediate_attributes[stat]) +','
+
 # Make Qt5 GUI frontend
+
 class Window(QWidget):
     def __init__(self):
        super(Window, self).__init__()
        layout=QGridLayout()
+       self.setLayout(layout)
 
-       label=QLabel("your character stats")
-       layout.addWidget(label,0,1)
+       label=QLabel("your character stats are:")
 
-      #need to get to  a string to print. 
+       layout.addWidget(label,0,0)
+       label=QLabel(''.join(final_attributes))
+       layout.addWidget(label,1,0) 
+      #need to get to  a string to print the join method of string is what we want here.  
       # label= QLabel(sorted(final_attributes, reverse=True))
       # layout.addWidget(label,0,2)
+
 app= QApplication(sys.argv)   
 
 screen=Window()
