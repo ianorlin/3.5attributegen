@@ -48,7 +48,7 @@ class Window(QWidget):
        layout=QGridLayout()
        self.setLayout(layout)
 
-       label=QLabel("your character stats are:")
+       label=QLabel("Your character stats are:")
 
        layout.addWidget(label,0,0)
        label=QLabel(''.join(final_attributes))
