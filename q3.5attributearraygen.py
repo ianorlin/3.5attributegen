@@ -36,7 +36,7 @@ for attribute in range(1,7):
        # print (sorted(final_attributes, reverse=True))
 
 # sort the stats not in order but with reverse of normal from high to low
-intermdediate_attributes= sorted (intermediate_attributes, reverse=True)
+intermediate_attributes= sorted (intermediate_attributes, reverse=True)
 for stat in range(0,6):
     final_attributes+= str(intermediate_attributes[stat]) +','
 
