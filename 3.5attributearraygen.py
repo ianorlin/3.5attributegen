@@ -20,7 +20,6 @@
 import random
 final_attributes=[]
 random.seed()
-
  
 for attribute in range(1,7): 
     temp_rolls=[]
@@ -31,5 +30,3 @@ for attribute in range(1,7):
     final_attributes+= [sum(temp_rolls[1:4])]
     if (attribute == 6):
         print (sorted(final_attributes, reverse=True))
-
-
