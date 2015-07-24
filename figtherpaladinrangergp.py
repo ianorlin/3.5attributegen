@@ -7,4 +7,4 @@ random.seed()
 
 numgp= (random.randint(1,7)+random.randint(1,7)+random.randint(1,7)+random.randint(1,7)+random.randint(1,7))*10 
 
-print ("goldpieces= " , numgp)
+print ("Gold Pieces= " , numgp)
